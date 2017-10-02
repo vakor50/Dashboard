@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>D&amp;D Dashboard</title>
+	
+	<!-- Bootstrap css -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	
+	<link rel="stylesheet" type="text/css" href="css/dashboard.css">
+	<link rel="stylesheet" type="text/css" href="css/initiative.css">
+	<link rel="stylesheet" type="text/css" href="css/dice.css">
+	<link rel="stylesheet" type="text/css" href="css/spells.css">
+
+
+</head>
+<body>
+	<!-- Fixed navbar -->
+	<nav class="navbar navbar-default navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">Dungeons &amp; Dashboards</a>
+			</div>
+			<div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li class="active"><a href="./">Fixed top <span class="sr-only">(current)</span></a></li>
+				</ul>
+			</div><!--/.nav-collapse -->
+		</div>
+	</nav>
+
+	<div class="container">
+
+		<div class="row">
+			<!-- ******************************************** -->
+			<!-- 			   Add a Player			      	  -->
+			<!-- ******************************************** --> 
+			<div class="col-md-4 col-lg-4 addPeople">
+				<h3>Initiative:</h3>
+				<div class="input-group">
+					<!-- <span class="input-group-addon" id="basic-addon1">Name: </span> -->
+					<input type="text" class="form-control" id="playerName" placeholder="Name..." aria-describedby="basic-addon1" size="10">
+					<span class="input-group-addon" id="basic-addon1" style="width: 1px; padding: 0px;"></span>
+					<input type="number" class="form-control" min="0" max="50" id="initiative" placeholder="Initiative" aria-describedby="basic-addon1">
+					<span class="input-group-btn">
+						<button id="addPlayerButton" class="btn btn-primary"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
+					</span>
+				</div>				
+
+				<!-- ******************************************** -->
+				<!-- 			     initiative     			  -->
+				<!-- ******************************************** --> 
+				<!-- <h4>Initiatives:</h4> -->
+				<ul id="initiative-list" class="list-group">
+					<!-- list of initiatives -->
+				</ul>
+
+				<button id="next-player" class="btn btn-primary">Next</button>	
+			</div>
+
+			<!-- ******************************************** -->
+			<!-- 			   Add a Die			      	  -->
+			<!-- ******************************************** --> 
+			<div class="col-md-4 col-lg-4">
+				<h3>Dice Roll:</h3>
+				<div class="row" id="dieInputs">
+					<div  class="col-sm-9">
+						<div class="input-group">
+							<input type="number" class="form-control dieNum" min="0" max="50" placeholder="Num" aria-describedby="basic-addon1" size="10">
+							<span class="input-group-addon" id="basic-addon1">d</span>
+							<input type="number" class="form-control dieVal" min="0" max="50" placeholder="Dice" aria-describedby="basic-addon1" size="10">
+							<!-- <span class="input-group-btn">
+								<button class="btn btn-primary deleteDie"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+							</span> -->
+						</div>
+
+					</div>	
+					<div class="col-sm-1 col-sm-offset-1">
+						<button id="addDice" class="btn btn-primary"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
+					</div>	
+				</div>
+
+				<br>
+				<button id="calculate" class="btn btn-primary" style="margin-bottom: 5px;">Calculate</button>
+				<!-- ******************************************** -->
+				<!-- 			     output 	     			  -->
+				<!-- ******************************************** --> 
+				<textarea id="die-results" class="form-control" rows="5"></textarea>
+			</div>
+
+			<div class="col-md-4 col-lg-4" id="spell-book" style="overflow: auto;">
+				<h3>Spells:</h3>
+				<input type="text" class=" form-control" id="myInput" onkeyup="myFunction()" placeholder="Search for spell names.." aria-describedby="basic-addon1" />
+				<ul id="spells" class="list-group"></ul>
+			</div>
+		</div><!--/row-->
+
+		<footer>
+			<hr>
+			<p>&copy; Dungeons &amp; Dashboards 2017</p>
+		</footer>
+
+	</div><!--/.container-->
+
+
+    <!-- Bootstrap core JavaScript
+    	================================================== -->
+    	<!-- Placed at the end of the document so the pages load faster -->
+    	<!-- jQuery -->
+    	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    	<!-- Font Awesome -->
+    	<script src="https://use.fontawesome.com/6ae3520305.js"></script>
+    	<!-- Popper.js -->
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    	<!-- Bootstrap js -->
+    	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    	<!-- D3 -->
+    	<script src="https://d3js.org/d3.v4.min.js"></script>
+    	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    	<script src="js/ie10-viewport-bug-workaround.js"></script>
+
+    	<script src="js/mini.js"></script>
+    	<script src="js/dice.js"></script>
+    	<script src="js/autocomplete.js"></script>
+    	<script src="js/spells.js"></script>
+    </body>
+    </html>

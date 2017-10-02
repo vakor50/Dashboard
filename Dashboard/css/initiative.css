@@ -1,0 +1,27 @@
+.defeat:hover {
+	color: black !important;
+}
+
+#shift-back:hover {
+	color: black !important;
+}
+
+#delete-player:hover {
+	color: #337ab7 !important;
+}
+
+#delete-monster:hover {
+	color: black !important;
+}
+
+
+input.has-issue {
+	border: 1px solid #d66;
+}
+
+.issue {
+	color: #d66;
+	/*font-size: 0.8rem;*/
+}
+
+
