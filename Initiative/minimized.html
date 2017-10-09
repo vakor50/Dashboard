@@ -54,17 +54,24 @@
 			<!-- ******************************************** -->
 			<!-- 			   Add a Player			      	  -->
 			<!-- ******************************************** --> 
-			<div class="col-md-4 col-lg-4 addPeople">
+			<div class="col-md-4 addPeople gray-out">
 				<h3>Create:</h3>
-				<div class="input-group">
-					<!-- <span class="input-group-addon" id="basic-addon1">Name: </span> -->
-					<input type="text" class="form-control" id="playerName" placeholder="Name..." aria-describedby="basic-addon1" size="10">
-					<span class="input-group-addon" id="basic-addon1" style="width: 1px; padding: 0px;"></span>
-					<input type="number" class="form-control" min="0" max="50" id="initiative" placeholder="Initiative" aria-describedby="basic-addon1">
-					<span class="input-group-btn">
+				<div class="row">
+					<div  class="col-md-9">
+						<div class="input-group">
+
+							<!-- <span class="input-group-addon" id="basic-addon1">Name: </span> -->
+							<input type="text" class="form-control" id="playerName" placeholder="Name..." aria-describedby="basic-addon1" size="10">
+							<span class="input-group-addon" id="basic-addon1" style="width: 1px; padding: 0px;"></span>
+							<input type="number" class="form-control" min="0" max="50" id="initiative" placeholder="Initiative" aria-describedby="basic-addon1">
+							<span class="input-group-addon" id="basic-addon1" style="width: 1px; padding: 0px;"></span>
+							<input type="number" class="form-control" min="0" max="50" id="armor" placeholder="AC" aria-describedby="basic-addon1">
+						</div>
+					</div>
+					<div class="col-md-1">	
 						<button id="addPlayerButton" class="btn btn-primary"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
-					</span>
-				</div>				
+					</div>
+				</div>
 
 				<!-- ******************************************** -->
 				<!-- 			     initiative     			  -->
@@ -76,6 +83,10 @@
 
 				<button id="next-player" class="btn btn-primary">Next</button>
 				
+			</div>
+			<div class="col-md-4 col-lg-4 gray-out">
+			</div>
+			<div class="col-md-4 col-lg-4 gray-out">
 			</div>
 		</div><!--/row-->
 

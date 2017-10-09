@@ -1,0 +1,15 @@
+#class-overview {
+	margin-top: 70px;
+	column-count: 3;
+	column-gap: 40px;
+}
+
+.vertical {
+	/*display: inline-block;*/
+    display: inline-grid;
+    /*display: inline-flex;*/
+
+    /*vertical-align: middle;*/
+    /*float: none;*/
+    /*border: 1px solid black;*/
+}

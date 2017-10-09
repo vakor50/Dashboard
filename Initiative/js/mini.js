@@ -101,6 +101,7 @@ $('#addPlayerButton').click(function() {
 	
 	$player = $('#playerName');
 	$initiative = $('#initiative');
+	$armor = $('#armor');
 	$(".init-issue").remove();
 
 	// remove any error messages
@@ -108,6 +109,8 @@ $('#addPlayerButton').click(function() {
 	$player.parent().find(".help-block").remove();
 	$initiative.attr("class", "form-control");
 	$initiative.parent().find(".help-block").remove();
+	$armor.attr("class", "form-control");
+	$armor.parent().find(".help-block").remove();
 
 	// error message for bad name input
 	if($player.val() == 0) {
@@ -120,11 +123,14 @@ $('#addPlayerButton').click(function() {
 		$initiative.attr("class", "form-control has-issue");
 		// $initiative.parent().append('<p class="help-block issue init-issue">Please enter an initiative score.</p>')
 	}
+	if ($armor.val() == '') {
+		$armor.attr("class", "form-control has-issue");
+	}
 
 	// Remove any html or white space on input, capitalize the words	
 	var name = validate($player.val().trim());
 
-	if ($player.val() != 0 && $initiative.val() != '') {
+	if ($player.val() != 0 && $initiative.val() != '' && $armor.val() != '') {
 		var isDup = false;
 
 		// Check if name exists in the array people
@@ -141,7 +147,7 @@ $('#addPlayerButton').click(function() {
 			// $('#initiative-list').append('<li class="list-group-item" id="player' + numPlayers + '"><span class="badge">' + $initiative.val() + '</span>' + name + '</li>');
 			$('#initiative-list').append('<li class="list-group-item row-fluid player">'
 				+ '<span class="badge pull-left">' + $initiative.val() + '</span>&nbsp;' 
-				+ '<span class="col-md-8 col-md-offset-1">' + name + '</span>' 
+				+ '<span class="col-md-8 col-md-offset-1">' + name + ' (AC: ' + $armor.val() + ')</span>' 
 				// + name
 				+ '<div id="" class="delete-player pull-right" data-name="' + name + '" data-init="' + $initiative.val() + '">'
 					+ '<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>' 
@@ -154,7 +160,7 @@ $('#addPlayerButton').click(function() {
 			sortInitiatives();
 
 			// add person to list of people
-			var player = [name, $initiative.val()];
+			var player = [name, $initiative.val(), $armor.val()];
 			people.push(player);
 			console.log(people);
 
@@ -163,6 +169,7 @@ $('#addPlayerButton').click(function() {
 			// reset input box
 			$player.val("");
 			$initiative.val("");
+			$armor.val("");
 		}
 	}
 });
